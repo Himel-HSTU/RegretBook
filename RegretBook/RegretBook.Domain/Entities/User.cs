@@ -4,21 +4,17 @@ using System.Text;
 
 namespace RegretBook.Domain.Entities
 {
-    public class User
+    public class User : BaseEntity
     {
-        private Guid _id;
+        
         private string _firstName;
         private string _lastName;
         private string _email;
 
-        public User()
+        public User() : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-        }
-
-        public Guid Id { 
-            get  { return _id; }
-        }
+            // Id is initialized in BaseEntity constructor 
+        }  
         public string FirstName { get { return _firstName; } set { _firstName = value; } }
         public string LastName { get { return _lastName; } set { _lastName = value; } }
         public string Email { get { return _email; } set { _email = value; } }
