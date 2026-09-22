@@ -29,5 +29,10 @@ namespace RegretBook.Domain.Entities
             
             //return $"Base Method Replaced!!!!! LikeNotification - Id: {Id}, CreatedAt: {CreatedAt}, ModifiedAt: {ModifiedAt}, CreatedBy: {CreatedBy}, ModifiedBy: {ModifiedBy}, UserId: {UserId}, Type: {Type}, Message: {Message}, IsRead: {IsRead}, LikeByUserId: {LikeByUserId}";
         }
+
+        public override string GetMessage()
+        {
+            return $"User with ID {LikeByUserId} liked your post.";
+        }
     }
 }
