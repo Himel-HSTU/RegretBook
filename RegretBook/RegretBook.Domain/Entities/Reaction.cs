@@ -4,19 +4,18 @@ using System.Text;
 
 namespace RegretBook.Domain.Entities
 {
-    public class Reaction
+    public class Reaction : BaseEntity
     {
-        private Guid _userId;
+       
         private Guid _regretId;
         private string _reactionType;
-        private DateTime _reactedAt;
-        public Reaction()
+        public Reaction() : base(Guid.NewGuid())
         {
-            _reactedAt = DateTime.UtcNow;
+            // Id is initialized in BaseEntity constructor 
         }
-        public Guid UserId { get { return _userId; } set { _userId = value; } }
+
         public Guid RegretId { get { return _regretId; } set { _regretId = value; } }
         public string? ReactionType { get { return _reactionType; } set { _reactionType = value; } }
-        public DateTime ReactedAt { get { return _reactedAt; } set { _reactedAt = value; } }
+        
     }
 }
