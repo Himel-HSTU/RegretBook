@@ -7,7 +7,7 @@ namespace RegretBook.Domain.Entities
     public abstract class Notification : BaseEntity  
     {
         private Guid _userId;
-        private string _type; 
+        private string _type;
         private string _message;
         private bool _isRead;
 

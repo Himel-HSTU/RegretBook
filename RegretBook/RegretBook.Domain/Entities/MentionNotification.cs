@@ -6,13 +6,14 @@ namespace RegretBook.Domain.Entities
 {
     public class MentionNotification : Notification
     {
+        public Guid MentionedByUserId { get; set; }
         public MentionNotification(Guid mentionedByUserId) : base("Mention")
         {
-            
+            MentionedByUserId = mentionedByUserId;
         }
         public override string GetMessage()
         {
-            return $"User Mentioned you in a regret.";
+            return $"User {MentionedByUserId} Mentioned you in a regret.";
         }
     }
 }

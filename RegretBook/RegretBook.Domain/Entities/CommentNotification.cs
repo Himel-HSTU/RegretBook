@@ -4,15 +4,21 @@ using System.Text;
 
 namespace RegretBook.Domain.Entities
 {
-    public class CommentNotification : Notification
+    public sealed class CommentNotification : Notification
     {
+        public Guid CommentByUserId { get; set; }
         public CommentNotification(Guid commentByUserId) : base("Comment")
         {
-            
+            CommentByUserId = commentByUserId;
+        }   
+
+        public void AddMessage(string message)
+        {
+            Message = message;
         }
         public override string GetMessage()
         {
-            return $"User commented on your regret.";
+            return $"User {CommentByUserId} commented on your regret.";
         }
     }
 }

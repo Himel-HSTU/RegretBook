@@ -22,3 +22,9 @@ foreach (var notification in notifications)
 {
     Console.WriteLine(notification.GetMessage());
 }
+
+// same can be done for Interface
+
+ILikeable LikeableRegret = new Regret("I regret not learning programming earlier.");
+
+Console.WriteLine(LikeableRegret.CanBeLiked()); // calling method from interface
