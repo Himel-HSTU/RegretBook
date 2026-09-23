@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RegretBook.Domain.Entities
 {
-    public class Regret : BaseEntity
+    public class Regret : BaseEntity, ILikeable
     {
         private Guid _userId;
         private string _description;
@@ -16,5 +16,10 @@ namespace RegretBook.Domain.Entities
 
         public Guid UserId { get { return _userId; } set { _userId = value; } }
         public string Description { get { return _description; } set {  _description = value; } }
+
+        public bool CanBeLiked() 
+        {
+            return true;
+        }
     }
 }
