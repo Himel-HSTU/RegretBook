@@ -7,18 +7,31 @@ namespace RegretBook.Domain.Entities
     public class Regret : BaseEntity, ILikeable
     {
         private Guid _userId;
-        private string _description;
+        private string _content ;
 
-        public Regret(string description) : base(Guid.NewGuid()) // Constructor chaining to BaseEntity
+        public Regret(string content) : base(Guid.NewGuid()) // Constructor chaining to BaseEntity
         {
-            _description = description;
+            _content = content;
         }
 
         public Guid UserId { get { return _userId; } set { _userId = value; } }
-        public string Description { get { return _description; } set {  _description = value; } }
+        public string Content { get { return _content; } set {  _content = value; } }
+        public void AddContent(string content)
+        {
+            _content = content;
+        }
 
+        public void AddContent(Guid userId, string content)
+        {
+            _userId = userId;
+            _content = content;
+        }
         public bool CanBeLiked() 
         {
+            if (string.IsNullOrWhiteSpace(Content))
+            {
+                return false;
+            }
             return true;
         }
     }
