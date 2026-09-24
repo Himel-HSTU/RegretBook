@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="RegretBook.Api/RegretBook.Api.csproj" Id="ff1dd971-0246-422b-b83f-fab92851595c" />
   <Project Path="RegretBook.Domain/RegretBook.Domain.csproj" />
   <Project Path="RegretBook.Test/RegretBook.Test.csproj" Id="0b92dfb4-bd24-4a1a-b7bb-b266aff330b2" />
 </Solution>
