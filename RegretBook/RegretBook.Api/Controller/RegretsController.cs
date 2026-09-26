@@ -2,25 +2,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using RegretBook.Domain.Entities;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace RegretBook.Api.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RegretController : ControllerBase
+    public class RegretsController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public RegretController(IConfiguration configuration)
+        public RegretsController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
-        
+
         //public void GetRegret()
         //{
         //    var connectionString = _configuration.GetValue<string>("Logging:LogLevel:Default");
         //}
 
+        // GET : api/Regret
         [HttpGet]
         public IActionResult GetRegrets()
         {
@@ -36,9 +38,10 @@ namespace RegretBook.Api.Controller
 
                 new Regret("I regret not pursuing my passions sooner."){UserId = Guid.NewGuid(), Content = "I wish I had pursued my interests and dreams earlier in life."}
             };
-            
+
             return Ok(regrets);
         }
-
-        }
+        
+    }
+    
 }
